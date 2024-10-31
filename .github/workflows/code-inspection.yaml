@@ -1,0 +1,32 @@
+name: Code Inspection
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: volta-cli/action@v4
+        with:
+          node-version: 18.18.2
+      - run: npm ci
+      - run: npm run test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: volta-cli/action@v4
+        with:
+          node-version: 18.18.2
+      - run: npm ci
+      - run: npm run lint
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: volta-cli/action@v4
+  #       with:
+  #         node-version: 20.10.0
+  #     - run: npm ci
+  #     - run: npm run build
