@@ -18,7 +18,13 @@ export default function Component() {
         <SideDetail
           title='設定'
           categories={['ユーザー設定']}
-          properties={[['アカウント情報', 'パスワード変更', '2段階認証']]}
+          properties={[
+            [
+              { property: 'アカウント情報', path: '/setting/account' },
+              { property: 'パスワード変更', path: '/setting/password' },
+              { property: '2段階認証', path: '/setting/two-factor-authentication' },
+            ],
+          ]}
           sideBarWidth={sideBarWidth}
           sideDetailWidth={sideDetailWidth}
         />

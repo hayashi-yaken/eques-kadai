@@ -2,10 +2,10 @@
 
 import { AddHome, Settings, Logout } from '@mui/icons-material'
 import { Box, List, BoxProps } from '@mui/material'
+import { usePathname } from 'next/navigation'
 import { FC, useState } from 'react'
 
 import { SideBarIcon } from './SideBarIcon'
-import { usePathname } from 'next/navigation'
 
 type SideBarProps = {
   width?: number
@@ -32,21 +32,23 @@ export const SideBar: FC<SideBarProps> = ({ width = 70, sx, ...restProps }) => {
     >
       <List>
         <SideBarIcon
-          icon={<AddHome color={selectedIcon === '/' ? 'primary' : 'action'} />}
-          path='/'
-          onClick={() => setSelectedIcon('/')}
+          icon={<AddHome color={selectedIcon.includes('home') ? 'primary' : 'action'} />}
+          path='/home/browser/microsoft'
+          onClick={() => setSelectedIcon('/home')}
           sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         />
         <SideBarIcon
-          icon={<Settings color={selectedIcon === '/setting' ? 'primary' : 'action'} />}
-          path='/setting'
-          onClick={() => setSelectedIcon('/setting')}
+          icon={
+            <Settings color={selectedIcon.includes('setting') ? 'primary' : 'action'} />
+          }
+          path='/setting/account'
+          onClick={() => setSelectedIcon('/setting/account')}
           sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         />
       </List>
       <List>
         <SideBarIcon
-          icon={<Logout color={selectedIcon === '/logout' ? 'primary' : 'action'} />}
+          icon={<Logout color={selectedIcon.includes('logout') ? 'primary' : 'action'} />}
           path='/logout'
           onClick={() => setSelectedIcon('/logout')}
           sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}

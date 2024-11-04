@@ -4,6 +4,7 @@ import { Box } from '@mui/material'
 import React from 'react'
 
 import { SideBar } from '@/components/SideBar'
+
 import { Logout } from '@/features/logout'
 
 export default function Component() {
