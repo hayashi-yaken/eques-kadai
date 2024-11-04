@@ -1,4 +1,5 @@
 import { Box, Button, List, ListItem, ListItemText } from '@mui/material'
+import React from 'react'
 import { FC } from 'react'
 
 export type SideDetailProps = {
@@ -34,7 +35,7 @@ export const SideDetail: FC<SideDetailProps> = ({
           />
         </ListItem>
         {categories.map((category, index) => (
-          <>
+          <React.Fragment key={category}>
             <ListItem>
               <ListItemText
                 primary={category}
@@ -48,7 +49,7 @@ export const SideDetail: FC<SideDetailProps> = ({
                 </ListItem>
               </Button>
             ))}
-          </>
+          </React.Fragment>
         ))}
       </List>
     </Box>
