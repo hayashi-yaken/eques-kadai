@@ -26,14 +26,20 @@ export const SideDetail: FC<SideDetailProps> = ({
         left: sideBarWidth,
       }}
     >
-      <List sx={{ mt: 2 }}>
-        <ListItem>
-          <ListItemText primary={title} primaryTypographyProps={{ fontWeight: 'bold' }} />
+      <List>
+        <ListItem sx={{ py: 2 }}>
+          <ListItemText
+            primary={title}
+            primaryTypographyProps={{ fontWeight: 'bold', fontSize: 20 }}
+          />
         </ListItem>
         {categories.map((category) => (
           <>
             <ListItem>
-              <ListItemText primary={category} />
+              <ListItemText
+                primary={category}
+                primaryTypographyProps={{ fontSize: 13 }}
+              />
             </ListItem>
             {properties.map((property) => (
               <Button key={property} sx={{ width: '100%', color: 'black' }}>

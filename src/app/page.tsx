@@ -10,7 +10,7 @@ import { Setting } from '@/features/setting'
 
 export default function Component() {
   const sideBarWidth = 70
-  const sideDetailWidth = 200
+  const sideDetailWidth = 280
   return (
     <Box display='flex'>
       <Box display='flex'>
@@ -23,7 +23,11 @@ export default function Component() {
           sideDetailWidth={sideDetailWidth}
         />
       </Box>
-      <Setting sideBarWidth={sideBarWidth} sideDetailWidth={sideDetailWidth} />
+      <Setting
+        sideBarWidth={sideBarWidth}
+        sideDetailWidth={sideDetailWidth}
+        sx={{ pt: 10 }}
+      />
     </Box>
   )
 }
