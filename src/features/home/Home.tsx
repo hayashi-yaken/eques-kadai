@@ -1,8 +1,5 @@
-import { Box, Typography, Chip, BoxProps } from '@mui/material'
+import { Box, Typography, BoxProps } from '@mui/material'
 import { FC } from 'react'
-
-import { PrimaryButton } from '@/components/Button'
-import { InputTextField } from '@/components/InputTextField'
 
 type HomeProps = {
   sideBarWidth: number
@@ -24,12 +21,6 @@ export const Home: FC<HomeProps> = ({
       <Typography variant='h6' sx={{ mb: 3 }}>
         ようこそ
       </Typography>
-      <Chip label='メンバー' size='small' sx={{ mb: 3 }} />
-      <Box component='form' sx={{ maxWidth: 400 }}>
-        <InputTextField title='名前' sx={{ mb: 5 }} />
-        <InputTextField title='メールアドレス' sx={{ mb: 5 }} />
-        <PrimaryButton title='変更する' />
-      </Box>
     </Box>
   )
 }

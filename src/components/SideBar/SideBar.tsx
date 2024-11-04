@@ -5,18 +5,15 @@ import { Box, List, BoxProps } from '@mui/material'
 import { FC, useState } from 'react'
 
 import { SideBarIcon } from './SideBarIcon'
+import { usePathname } from 'next/navigation'
 
 type SideBarProps = {
   width?: number
 } & BoxProps
 
 export const SideBar: FC<SideBarProps> = ({ width = 70, sx, ...restProps }) => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(0)
-
-  const handleListItemClick = (index: number) => {
-    setSelectedIndex(index)
-  }
-
+  const pathname = usePathname()
+  const [selectedIcon, setSelectedIcon] = useState<string>(pathname)
   return (
     <Box
       sx={{
@@ -35,20 +32,23 @@ export const SideBar: FC<SideBarProps> = ({ width = 70, sx, ...restProps }) => {
     >
       <List>
         <SideBarIcon
-          icon={<AddHome color={selectedIndex === 0 ? 'primary' : 'action'} />}
-          onClick={() => handleListItemClick(0)}
+          icon={<AddHome color={selectedIcon === '/' ? 'primary' : 'action'} />}
+          path='/'
+          onClick={() => setSelectedIcon('/')}
           sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         />
         <SideBarIcon
-          icon={<Settings color={selectedIndex === 1 ? 'primary' : 'action'} />}
-          onClick={() => handleListItemClick(1)}
+          icon={<Settings color={selectedIcon === '/setting' ? 'primary' : 'action'} />}
+          path='/setting'
+          onClick={() => setSelectedIcon('/setting')}
           sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         />
       </List>
       <List>
         <SideBarIcon
-          icon={<Logout color={selectedIndex === 2 ? 'primary' : 'action'} />}
-          onClick={() => handleListItemClick(2)}
+          icon={<Logout color={selectedIcon === '/logout' ? 'primary' : 'action'} />}
+          path='/logout'
+          onClick={() => setSelectedIcon('/logout')}
           sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         />
       </List>
