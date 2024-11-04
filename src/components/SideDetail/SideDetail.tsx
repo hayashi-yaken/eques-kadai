@@ -4,7 +4,7 @@ import { FC } from 'react'
 export type SideDetailProps = {
   title: string
   categories: string[]
-  properties: string[]
+  properties: string[][]
   sideBarWidth: number
   sideDetailWidth: number
 }
@@ -33,7 +33,7 @@ export const SideDetail: FC<SideDetailProps> = ({
             primaryTypographyProps={{ fontWeight: 'bold', fontSize: 20 }}
           />
         </ListItem>
-        {categories.map((category) => (
+        {categories.map((category, index) => (
           <>
             <ListItem>
               <ListItemText
@@ -41,7 +41,7 @@ export const SideDetail: FC<SideDetailProps> = ({
                 primaryTypographyProps={{ fontSize: 13 }}
               />
             </ListItem>
-            {properties.map((property) => (
+            {properties[index].map((property) => (
               <Button key={property} sx={{ width: '100%', color: 'black' }}>
                 <ListItem sx={{ pl: 4 }}>
                   <ListItemText primary={property} />

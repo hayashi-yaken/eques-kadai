@@ -6,7 +6,7 @@ import React from 'react'
 import { SideBar } from '@/components/SideBar'
 import { SideDetail } from '@/components/SideDetail'
 
-import { Home } from '@/features/home'
+import { Setting } from '@/features/setting'
 
 export default function Component() {
   const sideBarWidth = 70
@@ -16,17 +16,14 @@ export default function Component() {
       <Box display='flex'>
         <SideBar width={sideBarWidth} />
         <SideDetail
-          title='ホーム'
-          categories={['ブラウザ', 'ゲーム']}
-          properties={[
-            ['Microsoft Edge', 'Google Chrome', 'Firefox'],
-            ['Minecraft', 'Among Us'],
-          ]}
+          title='設定'
+          categories={['ユーザー設定']}
+          properties={[['アカウント情報', 'パスワード変更', '2段階認証']]}
           sideBarWidth={sideBarWidth}
           sideDetailWidth={sideDetailWidth}
         />
       </Box>
-      <Home
+      <Setting
         sideBarWidth={sideBarWidth}
         sideDetailWidth={sideDetailWidth}
         sx={{ pt: 10 }}
