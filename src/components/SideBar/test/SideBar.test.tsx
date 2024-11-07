@@ -1,11 +1,21 @@
 import { userEvent } from '@storybook/test'
 import { render, screen } from '@testing-library/react'
 import React, { act } from 'react'
-import { describe, expect, it } from 'vitest'
+import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
 
 import { SideBar } from '../SideBar'
 
 describe('SideBar', () => {
+  beforeEach(() => {
+    vi.mock('next/navigation', () => ({
+      usePathname: vi.fn().mockReturnValue('/home/browser/microsoft'),
+    }))
+  })
+
+  afterEach(() => {
+    vi.clearAllMocks()
+  })
+
   it('レンダリングされている', () => {
     render(<SideBar />)
     const buttonElement = screen.getAllByRole('button')
